@@ -1,1 +1,43 @@
-/* TODO: Make it awesome */
+header{
+    max-width: 70%;
+    margin-inline: auto;
+    margin-top: 30px;
+}
+h1{
+    font-size: xx-large;
+    font-weight: bolder;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+ul{
+    display: flex;
+    justify-content: left;
+}
+li{
+    margin: 0 10px 0 10px;
+}
+main{
+    max-width: 70%;
+    margin-inline: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+img{
+    max-width: 250px;
+    max-height: 250px;
+    border: solid 2px red;
+}
+section{
+    display: flex;
+    justify-content:space-between;
+}
+footer{
+    max-width: 70%;
+    margin-inline: auto;
+}
+p{
+    font-weight: bolder;
+    display: flex;
+    justify-content: space-around;
+}

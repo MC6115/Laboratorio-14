@@ -11,6 +11,61 @@ let canvasElem = document.getElementById('chart')
  *
  */
 function renderChart() {
+    let state = new AppState();
+    state.loadItems();
+    const productClicks = [];
+    const productNames = [];
+    const productViews = [];
+    
+    for (let i = 0; i < state.allProducts.length; i++) {
+        const product = state.allProducts[i];
+        productClicks.push(product.timesClicked);
+        productNames.push(product.name);
+        productViews.push(product.timesShown);
+    };
+    let chart = {
+        type: 'bar',
+        data: {
+            labels: productNames,
+            datasets: [
+                {
+                    label: '# de votos',
+                    data: productClicks,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(0,0,255,0.2)',
+                        'rgba(32,178,70,0.2)',
+                        'rgba(255,160,122,0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(0,0,255,1)',
+                        'rgba(32,178,70,1)',
+                        'rgba(255,160,122,1)',
+                    ],
+                    borderWidth: 1
+                },
+                {
+                    label: '# de visualizaciones',
+                    data: productViews,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(0,0,255,0.2)',
+                        'rgba(32,178,70,0.2)',
+                        'rgba(255,160,122,0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(0,0,255,1)',
+                        'rgba(32,178,70,1)',
+                        'rgba(255,160,122,1)',
+                    ],
+                    borderWidth: 1,
+                }
+            ]
+        },
+    }
+    new Chart(canvasElem,chart)
 }
 
 renderChart();

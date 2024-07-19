@@ -44,35 +44,35 @@ AppState.prototype.loadItems = function () {
   } else {
     this.instantiateProducts();
   }
- /* this.instantiateProducts();
+  /* this.instantiateProducts();
+ 
+   let storeData = localStorage.getItem('allProduct');
+   let storeDataConver = JSON.parse(storeData);
+ 
+   if (storeData) {
+     for (let i = 0; i < storeDataConver.length; i++) {
+       if (storeDataConver[i].name === 'sweep') {
+         let recuperado = new Product(storeDataConver[i].name, '.png');
+         recurperado.timesClicked = storeDataConver[i].timesClicked;
+         recuperado.timesShown = storeDataConver[i].timesShown;
+         this.allProducts.push(recuperado);
+       }
+       else {
+         let recuperado = new Product(storeDataConver[i].name);
+         recurperado.timesClicked = storeDataConver[i].timesClicked;
+         recuperado.timesShown = storeDataConver[i].timesShown;
+         this.allProducts.push(recuperado);
+       }
+     }
+   } else {
+     this.instantiateProducts();
+   }
+ */
+ }
 
-  let storeData = localStorage.getItem('allProduct');
-  let storeDataConver = JSON.parse(storeData);
-
-  if (storeData) {
-    for (let i = 0; i < storeDataConver.length; i++) {
-      if (storeDataConver[i].name === 'sweep') {
-        let recuperado = new Product(storeDataConver[i].name, '.png');
-        recurperado.timesClicked = storeDataConver[i].timesClicked;
-        recuperado.timesShown = storeDataConver[i].timesShown;
-        this.allProducts.push(recuperado);
-      }
-      else {
-        let recuperado = new Product(storeDataConver[i].name);
-        recurperado.timesClicked = storeDataConver[i].timesClicked;
-        recuperado.timesShown = storeDataConver[i].timesShown;
-        this.allProducts.push(recuperado);
-      }
-    }
-  } else {
-    this.instantiateProducts();
+  function Product(name, fileExtension = 'jpg') {
+    this.name = name;
+    this.source = `assets/${name}.${fileExtension}`;
+    this.timesClicked = 0;
+    this.timesShown = 0;
   }
-
-}*/
-
-function Product(name, fileExtension = 'jpg') {
-  this.name = name;
-  this.source = `assets/${name}.${fileExtension}`;
-  this.timesClicked = 0;
-  this.timesShown = 0;
-}
