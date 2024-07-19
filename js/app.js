@@ -19,26 +19,56 @@ AppState.prototype.instantiateProducts = function () {
 }
 
 AppState.prototype.saveToLocalStorage = function () {
-    localStorage.setItem(`datos`, JSON.stringify(this.allProducts));
-   
-  
+  localStorage.setItem(`datos`, JSON.stringify(this.allProducts));
+
+
 }
 
 AppState.prototype.loadItems = function () {
   // TODO: Update this instance method to retrieve data from local storage instead of creating new 
   // Products on each page load
- // if (localStorage.getItem(`${bag}`)) {
-  //  for (let i = 0; i < productNames.length; i++) {
-   //   const acceder = JSON.parse(localStorage.getItem(`${this.allProducts[i].name}`))
-   //   this.allProducts.push(acceder)
-  //  }
-  //}
-  //else{
-   // this.instantiateProducts();
-  //} 
-  this.instantiateProducts();
-}
+  //if (localStorage.getItem(`datos`)) {
+  //**nofor (let i = 0; i < productNames.length; i++) {
+  //const acceder = JSON.parse(localStorage.getItem(`datos`))
+  //this.allProducts.push(acceder)
+  //**console.log (this.allProducts)
+  // }
+  // else{
+  //  this.instantiateProducts();
+  // } 
+  const storedData = localStorage.getItem('datos');
+  if (storedData !== null) {
+    const acceder = JSON.parse(storedData);
+    this.allProducts.push(...acceder);
+    console.log(this.allProducts);
+  } else {
+    this.instantiateProducts();
+  }
+ /* this.instantiateProducts();
 
+  let storeData = localStorage.getItem('allProduct');
+  let storeDataConver = JSON.parse(storeData);
+
+  if (storeData) {
+    for (let i = 0; i < storeDataConver.length; i++) {
+      if (storeDataConver[i].name === 'sweep') {
+        let recuperado = new Product(storeDataConver[i].name, '.png');
+        recurperado.timesClicked = storeDataConver[i].timesClicked;
+        recuperado.timesShown = storeDataConver[i].timesShown;
+        this.allProducts.push(recuperado);
+      }
+      else {
+        let recuperado = new Product(storeDataConver[i].name);
+        recurperado.timesClicked = storeDataConver[i].timesClicked;
+        recuperado.timesShown = storeDataConver[i].timesShown;
+        this.allProducts.push(recuperado);
+      }
+    }
+  } else {
+    this.instantiateProducts();
+  }
+
+}*/
 
 function Product(name, fileExtension = 'jpg') {
   this.name = name;
